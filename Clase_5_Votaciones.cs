@@ -10,7 +10,7 @@ public class Boolean
 		Console.WriteLine("Numero de votos por le partido 2");
 		int b = int.Parse(Console.ReadLine());
 		
-		Console.WriteLine("Numero de votos por le partido 1 en blanco");
+		Console.WriteLine("Numero de votos en blanco");
 		int blancos = int.Parse(Console.ReadLine());
 		
 		Console.WriteLine("Numero de votos anulados");
