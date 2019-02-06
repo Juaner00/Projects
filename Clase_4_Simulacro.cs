@@ -67,7 +67,7 @@ namespace DEPIND{
                 }else if (r == 3){
                 
                     arl = tres * bc;
-                    st = st - arl;
+                    st -= arl;
                     
                 }
                 else if (r == 4)
