@@ -15,9 +15,9 @@ class Program {
 
     static void Main() {
 
-        while (!ganar && !perder && continuarBool && !dosUno) {
+        SigDados();
 
-            SigDados();
+        while (!ganar && !perder && continuarBool && !dosUno) {
 
             Console.Write("Desea cotinuar (s/n) ");
             respuesta = Console.ReadLine();
