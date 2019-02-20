@@ -35,7 +35,7 @@ class Program {
                 Console.WriteLine("Ha ganado");
             }
             if (dado1 == dado2) pares++;
-            else if (dado1 != dado2) pares = 0;
+            else pares = 0;
 
             if (pares == 3) {
                 ganar = true;
