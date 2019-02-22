@@ -49,8 +49,8 @@ class Program {
     }
 
     static void SigDados() {
-        dado1 = dado.Next(1, 11);
-        dado2 = dado.Next(1, 11);
+        dado1 = dado.Next(1, 7);
+        dado2 = dado.Next(1, 7);
         total += dado1 + dado2;
 
         Console.WriteLine("dado 1: " + dado1);
