@@ -32,7 +32,7 @@ class Program {
             }
             if (dado1 == 1 && dado2 == 1 && pares != 2) {
                 perder = true;
-                Console.WriteLine("Ha ganado");
+                Console.WriteLine("Ha perdido");
             }
             if (dado1 == dado2) pares++;
             else pares = 0;
