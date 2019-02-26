@@ -15,7 +15,7 @@ class Program {
     Console.WriteLine("Cada tres turnos lanzan dos dados, si éstos son iguales ganas una vida\n");
     Console.WriteLine("Tus vidas: " + vida);
 
-    SigDados1();
+    SigDados(1);
     
     while (!ganar && !perder && continuarBool) {
       //Continuar
@@ -29,7 +29,7 @@ class Program {
       //Dobles dados
       if(turno % 3 == 0 && continuarBool) {
         Console.WriteLine("Lanzas dos dados cada tres turnos");
-        SigDados2();
+        SigDados(2);
 
         //Ganar vida
         if (dado1 == dado2) {
@@ -58,27 +58,31 @@ class Program {
     Console.WriteLine("Tu puntaje total: " + total);
   }
 
-  static void SigDados1() {
+  static void SigDados(int dados) {
     turno++;
     Console.WriteLine("\nTurno: " + turno + "\n");
 
-    dado1 = dado.Next(1, 7);
-    total += dado1;
+    
 
-    Console.WriteLine("Dado: " + dado1);
-    Console.WriteLine("Total: " + total + "\n");
-  }
+    if (dados == 1){
+     	dado1 = dado.Next(1, 7);
 
-  static void SigDados2() {
-    turno++;
-    Console.WriteLine("\nTurno: " + turno + "\n");
+      total += dado1 + dado2;
 
-    dado1 = dado.Next(1, 7);
+      Console.WriteLine("Dado 1: " + dado1);
+      Console.WriteLine("Total: " + total + "\n")
+
+  } else if (dados == 2) {
+     dado1 = dado.Next(1, 7);
     dado2 = dado.Next(1, 7);
     total += dado1 + dado2;
 
     Console.WriteLine("Dado 1: " + dado1);
     Console.WriteLine("Dado 2: " + dado2);
-    Console.WriteLine("Total: " + total + "\n");
-  }
+    Console.WriteLine("Total: " + total + "\n")
+  } 
+
+  
+
+
 }
