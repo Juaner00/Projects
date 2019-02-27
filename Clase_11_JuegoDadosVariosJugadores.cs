@@ -25,7 +25,7 @@ class MainClass
         if (dadoSig == 1) contadorDados++;
         else contadorDados = 0;
         if (contadorDados == 3){
-          Console.WriteLine("Has perdido porque has sacado dos 1 seguidos");
+          Console.WriteLine("Has perdido porque has sacado tres 1 seguidos");
           break;
         }
 
