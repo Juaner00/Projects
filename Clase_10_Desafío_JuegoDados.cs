@@ -6,7 +6,7 @@ class Program
   static Random dado = new Random();
 
   static bool perder = false, continuarBool = true;
-  static int total = 0, vida = 3, turno = 0, dado1 = 0, dado2 = 0;
+  static int total = 0, vida = 3, turno = 1, dado1 = 0, dado2 = 0;
   static string respuesta = "";
 
   static void Main() 
@@ -15,31 +15,8 @@ class Program
     Console.WriteLine("Cada tres turnos lanzan dos dados, si éstos son iguales ganas una vida\n");
     Console.WriteLine("Tus vidas: " + vida);
 
-    ++turno;
-    Console.WriteLine("\nTurno: " + turno + "\n");
-    SigDados(1);
-    
-    while (!perder && continuarBool) 
+    do  
     {
-      //Continuar
-      Console.Write("Desea cotinuar (s/n) ");
-      respuesta = Console.ReadLine();
-
-      switch (respuesta)
-      {
-        case "s":
-          continuarBool = true;
-          ++turno;
-          Console.WriteLine("\nTurno: " + turno + "\n");
-          break;
-        case "n":
-          continuarBool = false;
-          break;
-        default:
-          Console.WriteLine("Digite una opcion correcta");
-          continue;
-      }
-
       //Dobles dados, cada 3 turnos
       if(turno % 3 == 0 && continuarBool) 
       {
@@ -69,9 +46,30 @@ class Program
         perder = true;
         Console.WriteLine("Tus vidas: " + vida);
         Console.WriteLine("Has perdido porque te has quedado sin vidas");
+        break;
+      }
+      
+      //Continuar
+      Console.Write("Desea cotinuar (s/n) ");
+      respuesta = Console.ReadLine();
+
+      switch (respuesta)
+      {
+        case "s":
+          continuarBool = true;
+          ++turno;
+          Console.WriteLine("\nTurno: " + turno + "\n");
+          break;
+        case "n":
+          continuarBool = false;
+          break;
+        default:
+          Console.WriteLine("Digite una opcion correcta");
+          continue;
       }
     
-    }
+    } while (!perder && continuarBool);
+    
     //Mensaje final
     Console.WriteLine("\nTu puntaje total: " + total);
   }
