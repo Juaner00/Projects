@@ -6,10 +6,11 @@ class MainClass
   {
     Random dado = new Random();
     int dadoSig = 0, total = 0, contadorDados = 0, jugador = 0;
+    bool ganar = false;
     Console.Write("Cuántos jugadores van a jugar?: ");
     int nJugadores = int.Parse(Console.ReadLine());
 
-    while(jugador < nJugadores){
+    while(jugador < nJugadores && !ganar){
       Console.WriteLine("\nJugador " + (jugador + 1));
       
       while (true){
@@ -20,6 +21,7 @@ class MainClass
 
         if (total >= 100) {
           Console.WriteLine("Has ganado");
+          ganar = true;
           break;
         }
         if (dadoSig == 1) contadorDados++;
@@ -36,7 +38,6 @@ class MainClass
       Console.WriteLine("Total: " + total);
       dadoSig = 0;
 
-      if (total >= 100) break;
       total = 0;
       jugador++;
     }
