@@ -28,20 +28,24 @@ public class MainClass
 			Console.Write("Qué quieres hallar? escribe 'inter' o 'uni' o 'comp': ");
 			string resp = Console.ReadLine();	
 
+			//comprobar qué respuesta escogió (if)
 			switch (resp)
 			{
 				case "inter":
 					Interseccion(conjunto1, conjunto2);
 					respCorrecta = true;
 					break;
+
 				case "uni":
 					Union(conjunto1, conjunto2);
 					respCorrecta = true;
 					break;
+
 				case "comp":
 					Complemento(conjunto1, conjunto2, universo);
 					respCorrecta = true;					
 					break;
+
 				default:
 					Console.WriteLine("Da una respuesta correcta");
 					break;
@@ -50,6 +54,7 @@ public class MainClass
 		}
   }
 
+	//ordenamiento
 	static void BubbleSort(ref int[] conjunto)
 	{
 		for (int i = 0; i < (conjunto.Length - 1); i++)
@@ -66,22 +71,24 @@ public class MainClass
 		}
 	}
 
+	//quitar números repetidos
 	static void Simplificar(ref int[] array)
 	{
-		List<int> tempList = new List<int>();
+		List<int> arrayList = new List<int>();
 		int temp = 0;
 		
 		//poner los numeros no repetidos
 		for (int i = 0; i < array.Length; i++)
 		{			
-			if (array[i] != temp || i == 0) tempList.Add(array[i]);
+			if (array[i] != temp || i == 0) arrayList.Add(array[i]);
 			temp = array[i];
 		}
 
 		//retornar el arreglo simplificado
-		array = tempList.ToArray();
+		array = arrayList.ToArray();
 	}
 
+	//hallar la intersección
 	static void Interseccion(int[] conjunto1, int[] conjunto2)
 	{
 		List<int> interseccionList = new List<int>();
@@ -116,6 +123,7 @@ public class MainClass
 		}
 	}
 
+	//hallar la union
 	static void Union(int[] conjunto1, int[] conjunto2)
 	{
 		List<int> unionList = new List<int>();
@@ -148,11 +156,12 @@ public class MainClass
 		}
 	}
 
+  //hallar el complemento
 	static void Complemento(int[] conjunto1, int[] conjunto2, int[] universo)
 	{
 		List<int> universoList = universo.ToList();
 
-		//quitar elementos al "universe" de los conjuntos
+		//quitar elementos al "universo" de los conjuntos
 		for (int i = 0; i < universo.Length; i++)
 		{
 			for (int j = 0; j < conjunto1.Length; j++)
