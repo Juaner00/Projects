@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class MainClass 
-{
-	
+{	
   public static void Main () 
 	{
 		//establecer conjuntos
