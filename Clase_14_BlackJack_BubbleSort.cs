@@ -51,6 +51,7 @@ public class CardGame
           break;
         }
       }
+			
       Console.WriteLine("Tu puntaje total: " + total);
       puntajes[turno] = total;
       
