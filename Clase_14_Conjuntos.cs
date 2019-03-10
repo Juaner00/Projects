@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class MainClass 
-{	
+{
   public static void Main () 
 	{
 		//establecer conjuntos
@@ -17,25 +17,13 @@ public class MainClass
 
 		//mostrar conjuntos
 		Console.WriteLine("\nConjunto 1");
-		for (int i = 0; i < conjunto1.Length; i++)
-		{
-			Console.Write(conjunto1[i] + ", ");
-			if (i == (conjunto1.Length - 1)) Console.Write(conjunto1[i]);
-		}
+		for (int i = 0; i < conjunto1.Length; i++) Console.Write(conjunto1[i] + ", ");
 
 		Console.WriteLine("\n\nConjunto 2");
-		for (int i = 0; i < conjunto2.Length; i++)
-		{
-			Console.Write(conjunto2[i] + ", ");
-			if (i == (conjunto2.Length - 1)) Console.Write(conjunto2[i]);
-		}
+		for (int i = 0; i < conjunto2.Length; i++) Console.Write(conjunto2[i] + ", ");
 
 		Console.WriteLine("\n\nUniverso");
-		for (int i = 0; i < universo.Length; i++)
-		{
-			Console.Write(universo[i] + ", ");	
-			if (i == (universo.Length - 1)) Console.Write(universo[i]);
-		}
+		for (int i = 0; i < universo.Length; i++) Console.Write(universo[i] + ", ");	
 
 		//ordenar los conjuntos
 		BubbleSort(ref conjunto1);
@@ -44,25 +32,13 @@ public class MainClass
 		//mostar conjuntos ordenados
 		Console.WriteLine("\n\n\nConjuntos ordenados");
 		Console.WriteLine("\nConjunto 1");
-		for (int i = 0; i < conjunto1.Length; i++)
-		{
-			Console.Write(conjunto1[i] + ", ");
-			if (i == (conjunto1.Length - 1)) Console.Write(conjunto1[i]);		
-		}
+		for (int i = 0; i < conjunto1.Length; i++) Console.Write(conjunto1[i] + ", ");
 
 		Console.WriteLine("\n\nConjunto 2");
-		for (int i = 0; i < conjunto1.Length; i++)
-		{
-			Console.Write(conjunto1[i] + ", ");
-			if (i == (conjunto1.Length - 1)) Console.Write(conjunto1[i]);
-		}
+		for (int i = 0; i < conjunto1.Length; i++) Console.Write(conjunto1[i] + ", ");
 
 		Console.WriteLine("\n\nUniverso");
-		for (int i = 0; i < universo.Length; i++) 
-		{
-			Console.Write(universo[i] + ", ");	
-			if (i == (universo.Length - 1)) 	Console.Write(universo[i]);
-		}
+		for (int i = 0; i < universo.Length; i++) Console.Write(universo[i] + ", ");	
 
 		//escoger si se quiere hallar interseccion, union o complemento
 		while (true)
@@ -156,11 +132,7 @@ public class MainClass
 
 		//mostrar interseccion
 		Console.WriteLine("\nInterseccion");		
-		for (int i = 0; i < interseccion.Length; i++) 
-		{	
-			Console.Write(interseccion[i] + ", ");
-			if (i == (interseccion.Length - 1)) Console.Write(interseccion[i]);
-		}
+		for (int i = 0; i < interseccion.Length; i++) Console.Write(interseccion[i] + ", ");
 	}
 
 	//hallar la union
@@ -185,11 +157,7 @@ public class MainClass
 
 		//mostrar union
 		Console.WriteLine("\nUnion");
-		for (int i = 0; i < union.Length; i++) 
-		{
-			Console.Write(union[i] + ", ");
-			if (i == (union.Length - 1)) Console.Write(union[i]);
-		}
+		for (int i = 0; i < union.Length; i++) Console.Write(union[i] + ", ");
 	}
 
   //hallar el complemento
@@ -220,10 +188,6 @@ public class MainClass
 
 		//mostrar complemento
 		Console.WriteLine("\nComplemento");
-		for (int i = 0; i < complemento.Length; i++) 
-		{	
-			Console.Write(complemento[i] + ", ");
-			if (i == (complemento.Length - 1)) Console.Write(complemento[i]);
-		}
+		for (int i = 0; i < complemento.Length; i++) Console.Write(complemento[i] + ", ");
 	}
 }
