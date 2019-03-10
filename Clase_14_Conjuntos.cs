@@ -20,34 +20,22 @@ public class MainClass
 		Console.WriteLine("\nConjunto 1");
 		for (int i = 0; i < conjunto1.Length; i++)
 		{
-			if (i == (conjunto1.Length - 1)) 
-			{
-				Console.Write(conjunto1[i]);
-				break;
-			} 
 			Console.Write(conjunto1[i] + ", ");
+			if (i == (conjunto1.Length - 1)) Console.Write(conjunto1[i]);
 		}
 
 		Console.WriteLine("\n\nConjunto 2");
 		for (int i = 0; i < conjunto2.Length; i++)
 		{
-			if (i == (conjunto2.Length - 1)) 
-			{
-				Console.Write(conjunto2[i]);
-				break;
-			} 
 			Console.Write(conjunto2[i] + ", ");
+			if (i == (conjunto2.Length - 1)) Console.Write(conjunto2[i]);
 		}
 
 		Console.WriteLine("\n\nUniverso");
 		for (int i = 0; i < universo.Length; i++)
 		{
-			if (i == (universo.Length - 1)) 
-			{
-				Console.Write(universo[i]);
-				break;
-			} 
-			Console.Write(universo[i] + ", ");		
+			Console.Write(universo[i] + ", ");	
+			if (i == (universo.Length - 1)) Console.Write(universo[i]);
 		}
 
 		//ordenar los conjuntos
@@ -59,41 +47,30 @@ public class MainClass
 		Console.WriteLine("\nConjunto 1");
 		for (int i = 0; i < conjunto1.Length; i++)
 		{
-			if (i == (conjunto1.Length - 1)) 
-			{
-				Console.Write(conjunto1[i]);
-				break;
-			} 
 			Console.Write(conjunto1[i] + ", ");
+			if (i == (conjunto1.Length - 1)) Console.Write(conjunto1[i]);		
 		}
 
 		Console.WriteLine("\n\nConjunto 2");
 		for (int i = 0; i < conjunto1.Length; i++)
 		{
-			if (i == (conjunto1.Length - 1)) 
-			{
-				Console.Write(conjunto1[i]);
-				break;
-			} 
 			Console.Write(conjunto1[i] + ", ");
+			if (i == (conjunto1.Length - 1)) Console.Write(conjunto1[i]);
 		}
 
 		Console.WriteLine("\n\nUniverso");
-		for (int i = 0; i < universo.Length; i++) {
-			if (i == (universo.Length - 1)) 
-			{
-				Console.Write(universo[i]);
-				break;
-			} 
+		for (int i = 0; i < universo.Length; i++) 
+		{
 			Console.Write(universo[i] + ", ");	
+			if (i == (universo.Length - 1)) 	Console.Write(universo[i]);
 		}
-		
+
 		//escoger si se quiere hallar interseccion, union o complemento
 		while (true)
 		{
 			bool respCorrecta = false;
 
-			Console.Write("Qué quieres hallar? escribe 'inter' o 'uni' o 'comp': ");
+			Console.Write("\n\nQué quieres hallar? escribe 'inter' o 'uni' o 'comp': ");
 			string resp = Console.ReadLine();	
 
 			//comprobar qué respuesta escogió (if)
@@ -181,13 +158,9 @@ public class MainClass
 		//mostrar interseccion
 		Console.WriteLine("\nInterseccion");		
 		for (int i = 0; i < interseccion.Length; i++) 
-		{
-			if (i == (interseccion.Length - 1)) 
-			{
-				Console.Write(interseccion[i]);
-				break;
-			} 
+		{	
 			Console.Write(interseccion[i] + ", ");
+			if (i == (interseccion.Length - 1)) Console.Write(interseccion[i]);
 		}
 	}
 
@@ -215,12 +188,8 @@ public class MainClass
 		Console.WriteLine("\nUnion");
 		for (int i = 0; i < union.Length; i++) 
 		{
-			if (i == (union.Length - 1)) 
-			{
-				Console.Write(union[i]);
-				break;
-			} 
 			Console.Write(union[i] + ", ");
+			if (i == (union.Length - 1)) Console.Write(union[i]);
 		}
 	}
 
@@ -253,13 +222,9 @@ public class MainClass
 		//mostrar complemento
 		Console.WriteLine("\nComplemento");
 		for (int i = 0; i < complemento.Length; i++) 
-		{
-			if (i == (complemento.Length - 1)) 
-			{
-				Console.Write(complemento[i]);
-				break;
-			} 
+		{	
 			Console.Write(complemento[i] + ", ");
+			if (i == (complemento.Length - 1)) Console.Write(complemento[i]);
 		}
 	}
 }
