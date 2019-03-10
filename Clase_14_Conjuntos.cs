@@ -69,7 +69,7 @@ public class MainClass
 		{
 			bool respCorrecta = false;
 
-			Console.Write("\n\nQué quieres hallar? escribe 'inter' o 'uni' o 'comp': ");
+			Console.Write("\n\n\nQué quieres hallar? escribe 'inter' o 'uni' o 'comp': ");
 			string resp = Console.ReadLine();	
 
 			//comprobar qué respuesta escogió (if)
