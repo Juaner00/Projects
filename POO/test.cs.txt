@@ -1,0 +1,33 @@
+using System;
+
+class Clase_02 {
+  public static void Main (string[] args) {
+    
+    int caraDado = 1;
+
+    switch (caraDado)
+    {
+      case 1:
+      Console.WriteLine("Salió 1");
+      break;
+      case 2:
+      Console.WriteLine("Salió 2");
+      break;
+      case 3:
+      Console.WriteLine("Salió 3");
+      break;
+      case 4:
+      Console.WriteLine("Salió 4");
+      break;
+      case 5:
+      Console.WriteLine("Salió 5");
+      break;
+      case 6:
+      Console.WriteLine("Salió 6");
+      break;
+      default:
+      Console.WriteLine("No salió un valor válido");
+    }
+
+  }
+}
