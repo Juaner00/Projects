@@ -12,7 +12,7 @@ namespace Taller_01
         {
             int nProceso;
 
-            Console.WriteLine("Escoja uno de los siguientes procesos (1-15) escriba el número\n");
+            Console.WriteLine("Escoja uno de los siguientes procesos (1-18) escriba el número\n");
             Console.WriteLine("1| Se hace la suma desde 1 hasta n");
             Console.WriteLine("2| Se hace la suma desde 1 hasta n, pero solo los múltiplos de 3");
             Console.WriteLine("3| Tablas de multiplicar de un numero n");
