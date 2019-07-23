@@ -496,7 +496,7 @@ namespace Taller_01
 
             Console.WriteLine("El número secreto está entre 0, y 10 (cerrado)");
 
-            int intentos = 0;
+            int intentos = 1;
 
             while (true)
             {
@@ -509,12 +509,12 @@ namespace Taller_01
                 }
                 else if (adivinar < numeroSecreto)
                 {
-                    Console.WriteLine("El número secreto es menor a {0}", adivinar);
+                    Console.WriteLine("El número secreto es mayor a {0}", adivinar);
                     intentos++;
                 }
                 else if (adivinar > numeroSecreto)
                 {
-                    Console.WriteLine("El número secreto es mayor a {0}", adivinar);
+                    Console.WriteLine("El número secreto es menor a {0}", adivinar);
                     intentos++;
                 }
                 else break;
