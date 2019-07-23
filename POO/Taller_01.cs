@@ -140,7 +140,7 @@ namespace Taller_01
         private static void TablaMultiplicar()
         {
             //Comprobar que es un número
-            int numero = RetornarNumeroEntero();
+            int numero = RetornarNumeroFloat();
 
             for (int i = 0; i <= 12; i++) Console.WriteLine(numero * i);
         }
