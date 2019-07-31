@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +33,7 @@ namespace Ejercicio5
                 AnalizarDatosMatriz(matriz, charValidos);
 
                 //Crear un diccionario con la pos de X y Y
-                Dictionary<char, int[]> datoPos = CrearObjPos(matriz, ref posX);
+                string[] datoPos = CrearObjPos(matriz, ref posX);
 
                 //Calcular distancias
                 int[] direccion = CalcularDistancia(datoPos, matriz);
@@ -110,9 +110,9 @@ namespace Ejercicio5
             else if (contY < 1) Console.WriteLine("Debe haber mínimo una Y");
         }
 
-        private static Dictionary<char, int[]> CrearObjPos(char[,] matriz, ref int[] posX)
+        private static string[] CrearObjPos(char[,] matriz, ref int[] posX)
         {
-            Dictionary<char, int[]> posDatos = new Dictionary<char, int[]>();
+            List<string> posDatos = new List<string>();
 
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
@@ -123,55 +123,89 @@ namespace Ejercicio5
                         posX = new int[] { i, j };
 
                         int[] pos = new int[] { i, j };
-                        posDatos.Add(matriz[i, j], pos);
+                        posDatos.Add(matriz[i, j].ToString() + pos[0].ToString() + pos[1].ToString());
                     }
                     if (matriz[i, j] == 'Y')
                     {
                         int[] pos = new int[] { i, j };
-                        posDatos.Add(matriz[i, j], pos);
+                        posDatos.Add(matriz[i, j].ToString() + pos[0].ToString() + pos[1].ToString());
                     }
-                } 
+                }
             }
-            return posDatos;
+            return posDatos.ToArray();
         }
 
-        private static int[] CalcularDistancia(Dictionary<char, int[]> objetos, char[,] matriz)
+        private static int[] CalcularDistancia(string[] objetos, char[,] matriz)
         {
             int[] direccion = new int[2];
 
-            int row = matriz.GetLength(0);
-            int col = matriz.GetLength(1);
-            int[] xPos = objetos['X'];
-            int[] yPos = objetos['Y'];
+            int row = matriz.GetLength(1);
+            int col = matriz.GetLength(0);
+            //int[] xPos = objetos['X'];
+            //int[] yPos = objetos['Y'];
 
-            //Calcular distancias, por iz, por der
-            int disIz = xPos[1] + 1 + (col - 1 - yPos[1]);
-            int disDr = Math.Abs(xPos[1] - yPos[1]);
+            //Añadir a cada X, Y la pos
+            List<char[]> xPos = new List<char[]>();
+            List<char[]> yPos = new List<char[]>();
 
-            //Calcular distancias, por ar, por ab
-            int disAr = xPos[0] + 1 + (row - 1 - yPos[0]);
-            int disAb = Math.Abs(xPos[0] - yPos[0]);
-
-            if (disIz < disDr)
+            foreach (string objeto in objetos)
             {
-                direccion[1] = -disIz;
-            }
-            else
-            {
-                direccion[1] = disDr;
-            }
-            if (disAr < disAb)
-            {
-                direccion[0] = -disAr;
-            }
-            else
-            {
-                direccion[0] = -disAb;
+                if (objeto[0] == 'X')
+                {
+                    char[] pos = new char[] { objeto[1], objeto[2] };
+                    xPos.Add(pos);
+                }
+                if (objeto[0] == 'Y')
+                {
+                    char[] pos = new char[] { objeto[1], objeto[2] };
+                    yPos.Add(pos);
+                }
             }
 
-            Console.WriteLine("Cantidad de pasos: {0}", (Math.Abs(direccion[0]) + Math.Abs(direccion[1])));
+            xPos.ToArray();
+            yPos.ToArray();
 
-            return direccion;
+            //calcular cual y está más cercana
+            int[] dirTemp = new int[] { matriz.GetLength(1), matriz.GetLength(0) };
+
+            for (int i = 0; i < yPos.Count; i++)
+            {
+                //Calcular distancias, por iz, por der
+                int disIz = xPos[0][1] + 1 + (row - 1 - yPos[i][1]);
+                int disDr = Math.Abs(xPos[0][1] - yPos[i][1]);
+
+                //Calcular distancias, por ar, por ab
+                int disAr = xPos[0][0] + 1 + (col - 1 - yPos[i][0]);
+                int disAb = Math.Abs(xPos[0][0] - yPos[0][0]);
+
+                //Agradar las direcciones
+                if (disIz < disDr)
+                {
+                    direccion[1] = -disIz;
+                }
+                else
+                {
+                    direccion[1] = disDr;
+                }
+                if (disAr < disAb)
+                {
+                    direccion[0] = -disAr;
+                }
+                else
+                {
+                    direccion[0] = -disAb;
+                }
+                
+                if (Math.Abs(direccion[0]) + Math.Abs(direccion[1]) < Math.Abs(dirTemp[0]) + Math.Abs(dirTemp[1]))
+                {
+                    dirTemp[0] = direccion[0];
+                    dirTemp[1] = direccion[1];
+                }
+            }
+
+            Console.WriteLine("Cantidad de pasos: {0}", Math.Abs(dirTemp[0]) + Math.Abs(dirTemp[1]));
+
+            return dirTemp;
         }
 
         private static void MoverX(char[,] matriz, int[] dir, ref int[] posX)
