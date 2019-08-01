@@ -170,13 +170,36 @@ namespace Ejercicio5
 
             for (int i = 0; i < yPos.Count; i++)
             {
+                int disIz;
+                int disDr;
+                int disAr;
+                int disAb;
+
                 //Calcular distancias, por iz, por der
-                int disIz = xPos[0][1] + 1 + (row - 1 - yPos[i][1]);
-                int disDr = Math.Abs(xPos[0][1] - yPos[i][1]);
+                if (xPos[0][1] <= yPos[i][1])
+                {
+                    disIz = xPos[0][1] + 1 + (row - 1 - yPos[i][1]);
+                    disDr = yPos[i][1] - xPos[0][1];
+                }
+                else
+                {
+                    disDr = yPos[i][1] + 1 + (row - 1 - xPos[0][1]);
+                    disIz = xPos[0][1] - yPos[i][1];
+                }
 
                 //Calcular distancias, por ar, por ab
-                int disAr = xPos[0][0] + 1 + (col - 1 - yPos[i][0]);
-                int disAb = Math.Abs(xPos[0][0] - yPos[0][0]);
+                if (xPos[0][0] <= yPos[i][0])
+                {
+                    disAr = xPos[0][0] + 1 + (col - 1 - yPos[i][0]);
+                    disAb = yPos[i][0] - xPos[0][0];
+                }
+                else
+                {
+                    disAb = yPos[i][0] + 1 + (col - 1 - xPos[0][0]);
+                    disAr = Math.Abs(xPos[0][0] - yPos[i][0]);
+                }
+                
+                Console.WriteLine("iz: {0}, der: {1}, ar: {2}, ab {3}", disIz, disDr, disAr, disAb);
 
                 //Agradar las direcciones
                 if (disIz < disDr)
@@ -193,7 +216,7 @@ namespace Ejercicio5
                 }
                 else
                 {
-                    direccion[0] = -disAb;
+                    direccion[0] = disAb;
                 }
                 
                 if (Math.Abs(direccion[0]) + Math.Abs(direccion[1]) < Math.Abs(dirTemp[0]) + Math.Abs(dirTemp[1]))
@@ -246,20 +269,37 @@ namespace Ejercicio5
                 }
             }
             //Mover derecha
-            else if (dir[1] > 0)
+            else /*if (dir[1] > 0)*/
             {
                 for (int i = dir[1]; i > 0; i--)
                 {
-                    Console.WriteLine();
-                    //Se mueve 1 a la derecha
-                    Console.WriteLine("Mover derecha");
+                    //Si está en el borde, rodea el tablero
+                    if (posX[1] == matriz.GetLength(1) - 1)
+                    {
+                        Console.WriteLine();
 
-                    matriz[posX[0], posX[1]] = 'O';
+                        Console.WriteLine("Mover derecha");
 
-                    posX[1] += 1;
-                    matriz[posX[0], posX[1]] = 'X';
+                        matriz[posX[0], posX[1]] = 'O';
 
-                    ImprimirMatriz(matriz);
+                        posX[1] = 0;
+                        matriz[posX[0], posX[1]] = 'X';
+
+                        ImprimirMatriz(matriz);
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        //Se mueve 1 a la derecha
+                        Console.WriteLine("Mover derecha");
+
+                        matriz[posX[0], posX[1]] = 'O';
+
+                        posX[1] += 1;
+                        matriz[posX[0], posX[1]] = 'X';
+
+                        ImprimirMatriz(matriz);
+                    }
                 }
             }
 
@@ -298,23 +338,44 @@ namespace Ejercicio5
                     }
                 }
             }
+            
             //Mover abajo
-            else if (dir[1] > 0)
+            else /*if (dir[1] > 0)*/
             {
                 for (int i = dir[0]; i > 0; i--)
                 {
-                    Console.WriteLine();
-                    //Se mueve 1 abajo
-                    Console.WriteLine("Mover abajo");
+                    Console.WriteLine(i);
+                    //Si está en el borde, rodea el tablero
+                    if (posX[0] == matriz.GetLength(0) - 1)
+                    {
+                        Console.WriteLine();
 
-                    matriz[posX[0], posX[1]] = 'O';
+                        Console.WriteLine("Mover abajo");
 
-                    posX[0] += 1;
-                    matriz[posX[0], posX[1]] = 'X';
+                        matriz[posX[0], posX[1]] = 'O';
 
-                    ImprimirMatriz(matriz);
+                        posX[0] = 0;
+                        matriz[posX[0], posX[1]] = 'X';
+
+                        ImprimirMatriz(matriz);
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        //Se mueve 1 abajo
+                        Console.WriteLine("Mover abajo");
+
+                        matriz[posX[0], posX[1]] = 'O';
+
+                        posX[0] += 1;
+                        matriz[posX[0], posX[1]] = 'X';
+
+                        ImprimirMatriz(matriz);
+                    }
                 }
+                
             }
+            Console.WriteLine("{0} {1}", dir[0], dir[1]);
         }
 
         private static void ImprimirMatriz(char[,] matriz)
