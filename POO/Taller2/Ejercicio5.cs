@@ -55,7 +55,7 @@ namespace Ejercicio5
             List<string> renglonesLista = new List<string>();
 
             //Tipo de dato de archivos
-            StreamReader archivo = new StreamReader("C:\\Users\\manue\\Desktop\\Matriz.txt");
+            StreamReader archivo = new StreamReader("C:\\Users\\manue\\Desktop\\Ej_5.txt");
 
             //Poner las líneas en el archivo
             renglon = archivo.ReadLine();
